@@ -4,8 +4,9 @@
 """
 
 
-def list_all(mongo_collection):
+def insert_school(mongo_collection, **kwargs):
     """
-    Lists all documents in a collection.
+    Inserts a new document in a collection.
     """
-    return [doc for doc in mongo_collection.find()]
+    result = mongo_collection.insert_one(kwargs)
+    return result.inserted_id

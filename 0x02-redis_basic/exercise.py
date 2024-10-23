@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-A module for using Redis NoSQL data storage with improved organization and type safety.
+A module for using Redis NoSQL data storage
+with improved organization and type safety.
 """
 from __future__ import annotations
 import uuid
@@ -40,7 +41,8 @@ class RedisTracker:
         redis_client.rpush(out_key, str(output))
 
     @staticmethod
-    def get_call_history(redis_client: RedisClient, method_name: str) -> tuple[list, list]:
+    def get_call_history(redis_client: RedisClient,
+                         method_name: str) -> tuple[list, list]:
         """Retrieve method call history."""
         in_key = create_key(method_name, 'inputs')
         out_key = create_key(method_name, 'outputs')
@@ -100,7 +102,8 @@ def replay(fn: Optional[Callable]) -> None:
 
 
 class Cache:
-    """A class for storing and retrieving data in Redis with tracking capabilities."""
+    """A class for storing and retrieving data in Redis
+    with tracking capabilities."""
 
     def __init__(self) -> None:
         """Initialize Redis connection and clear existing data."""
